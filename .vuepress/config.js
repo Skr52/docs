@@ -1,5 +1,5 @@
 module.exports = {
-    title: '博客',
+    title: 'S.kr',
     description: '记录文档',
     head: [
         ['link', {
