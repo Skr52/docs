@@ -7,9 +7,9 @@
 		"dev": "vuepress dev .",
 		"build": "vuepress build ."
 	},
-	"author": "Skr52",
+	"author": "S.kr",
 	"license": "ISC",
 	"devDependencies": {
-		"vuepress": "^1.5.2"
+		"vuepress": "^1.8.2"
 	}
 }

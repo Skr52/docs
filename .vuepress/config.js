@@ -1,6 +1,6 @@
 module.exports = {
     title: 'S.kr',
-    description: '记录文档',
+    description: '博客',
     head: [
         ['link', {
             rel: 'icon',
@@ -36,7 +36,7 @@ module.exports = {
             {
                 title: '工作记录',
                 collapsable: false,
-                children: ['/home/dayrecord/record']
+                children: ['/home/day-record/record']
             },
             {
                 title: '常用网站',
@@ -46,12 +46,15 @@ module.exports = {
             {
                 title: '面试题',
                 collapsable: false,
-                children: ['/home/ms/ms']
+                children: [
+                    '/home/ms/ms',
+                    '/home/ms/desc'
+                ]
             },
             {
-                title: '工具类',
+                title: '常用方法',
                 collapsable: false,
-                children: ['/home/utils/currentDate', '/home/utils/formatDate', '/home/utils/hidePhone']
+                children: ['/home/methods/currentDate', '/home/methods/formatDate', '/home/methods/hidePhone']
             },
         ],
         sidebarDepth: 2,

@@ -1,4 +1,4 @@
-### 时间格式化
+# 时间格式化
 
 ``` js
 function formatDate(fmt, date) {
