@@ -107,6 +107,12 @@
 2. 外边距合并问题。
 3. 制作右侧自适应盒子问题。
 
+### link 和 @import的区别
+
+1. link 是xHTML标签，不存在兼容问题，@import 是在 css 2.1 提出的，低版本浏览器不支持。
+2. link 可以加载 css, javascript 文件的， @import 只能加载 css 文件。
+3. link 加载的内容是与页面同步加载，@import 需要网页完全加载完后再进行加载。
+
 ## 框架
 
 ### Vue

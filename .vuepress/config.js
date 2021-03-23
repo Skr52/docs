@@ -65,7 +65,7 @@ module.exports = {
         },
         ],
         sidebarDepth: 2,
-        lastUpdated: 'Updated Last'
+        lastUpdated: '更新时间'
     },
     markdown: {
         lineNumbers: true,
