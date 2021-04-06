@@ -1,4 +1,5 @@
 苹果账号密码：w123456789WW
-
 安卓证书文件密码：w123456789
 安卓证书别名：ualias
+github账号: Skr52
+github密码：www000aa
