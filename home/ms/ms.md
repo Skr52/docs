@@ -82,7 +82,7 @@
 ### JS 中事件传播的机制是怎么样的
 事件捕获：最先接受到事件的元素（document）依次往下传递有注册事件的元素（目标元素）
 
-事件冒泡：当前的事件源会逐步的向上传事件，直到最开始接受的元素（document）
+事件冒泡：当前的事件源会逐步的向上传递事件，直到最开始接受的元素（document）
 
 ### JS 中什么是DOM事件流
 1. 事件捕获阶段
@@ -109,7 +109,7 @@
 
 ### link 和 @import的区别
 
-1. link 是xHTML标签，不存在兼容问题，@import 是在 css 2.1 提出的，低版本浏览器不支持。
+1. link 是XHTML标签，不存在兼容问题，@import 是在 css 2.1 提出的，低版本浏览器不支持。
 2. link 可以加载 css, javascript 文件的， @import 只能加载 css 文件。
 3. link 加载的内容是与页面同步加载，@import 需要网页完全加载完后再进行加载。
 
@@ -122,7 +122,7 @@
 
 `route` 代表当前路由信息对象，在这其中包含了当前URL 解析到的信息，匹配到的 route records 路由记录
 
-#### Vue 中路由参数有几种方式
+#### Vue 中路由传参数有几种方式
 
 1. params 形式 `this.$router.push({ name: 'home', params: { age: 10 } })`
 
