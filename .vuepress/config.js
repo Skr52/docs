@@ -8,7 +8,8 @@ module.exports = {
         }]
     ],
     port: 8917,
-    desc: './dist',
+    dest: 'docs',
+    base: '/',
     themeConfig: {
         sidebar: [{
             title: '导读',
@@ -26,7 +27,7 @@ module.exports = {
         {
             title: 'Vue',
             collapsable: false,
-            children: ['/home/Vue/standard']
+            children: ['/home/Vue/standard', '/home/Vue/v3']
         },
         {
             title: 'Git',

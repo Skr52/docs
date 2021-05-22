@@ -1,8 +1,8 @@
-### 书写规范
+# 书写规范
 
 参考 `Vue` 官方风格指南，写出更规范和统一的代码。
 
-### Component  
+## Component  
 所有的 `Component` 文件都是以大写开头（PascalCase）官方比较推荐的  
 
 但除了`index.vue` 文件  
@@ -12,7 +12,7 @@
 * `@/components/Hamburger/index `  
 * `@/components/SvgIcon/index`
 
-### JS文件
+## JS文件
 所有的 `.js` 文件都遵循横线连接（kebab-case）。  
 
 例子：  
@@ -21,7 +21,7 @@
 * `@/views/svg-icons/require-icons.js`
 * `@/components/MarkdownEditor/default-options.js`
 
-### View 文件
+## View 文件
 在 `views` 文件下，代表路由的 `.vue` 文件都使用横线连接 (kebab-case)，代表路由的文件夹也是使用同样的规则。  
 
 例子：  
