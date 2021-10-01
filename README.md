@@ -1,14 +1,14 @@
 ---
 home: true
 heroImage: /img/logo.png
-actionText: 快速上手 →
+actionText: 阅读 →
 actionLink: /home/home
 features:
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: Vue驱动
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-footer: MIT Licensed | Copyright © 2018-present Evan You
+- title: HTML
+  details: HTML 相当于房子的地基，只有地基打牢了房子才不会塌陷。
+- title: CSS
+  details: CSS 相当于房子里面的装饰，只有熟练的使用房子里面装饰才跟漂亮。
+- title: JS
+  details: JS 相当于住在房子里面的人，赋予这个人在房子中可以做各种动作。
+footer: MIT Licensed | Copyright © 2021-WPR
 ---

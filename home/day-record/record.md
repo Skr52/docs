@@ -1,39 +1,5 @@
 # 问题
 
-## 1. `new Array(5).fill({})` 创建对象，创建的对象时引用类型的
-
-``` js
-let nowArray = new Array(2).fill({ a: 2 })
-
-nowArray[0].a = 333
-
-console.log(nowArray)
-
-// 输出结果，a的值都是一样的
-// [
-//     {a: 333},
-//     { a: 333}
-// ]
-```
-### 解决方案
-
- `Array.from` 创建对象
-
-``` js
-let nowsArray = Array.from({length : 2 }, () => { return { b : 33 } })
-
-nowsArray[0].b = 333
-
-console.log(nowsArray)
-
-// 输出结果
-// [
-//    {b: 333},
-//    {b: 33}
-// ]
-
-```
-
 ## 2. uni.app 开发微信公众号 `h5` 网页项目，发布更新后，微信浏览器网页存在缓存问题
 
 ### Tips

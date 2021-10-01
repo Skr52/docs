@@ -1,6 +1,6 @@
 module.exports = {
     title: 'S.kr',
-    description: '博客',
+    description: '不求每日阅读，但求一日阅读',
     head: [
         ['link', {
             rel: 'icon',
