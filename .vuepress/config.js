@@ -8,7 +8,7 @@ module.exports = {
         }]
     ],
     port: 8917,
-    dest: 'docs',
+    // dest: 'docs',
     base: '/',
     themeConfig: {
         sidebar: [{
