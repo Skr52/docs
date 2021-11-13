@@ -21,7 +21,8 @@ module.exports = {
             collapsable: false,
             children: [
                 '/home/JavaScript/debounce',
-                '/home/JavaScript/throttle'
+                '/home/JavaScript/throttle',
+                '/home/JavaScript/TS'
             ]
         },
         {

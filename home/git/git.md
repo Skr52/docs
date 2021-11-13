@@ -11,6 +11,7 @@
 8. git reflog // 本地分支查看回退版本的commit id
 9. git reset --hard a7a7323 // 回退版本 --hard 后面指commit id
 10. git push -f origin master // 远程分支回退版本。先本地分支进行回退，在强制推送到远程分支上。 
+11. git remote set-url --add origin 远程仓库地址 // 当前远程仓库添加一个新的远程仓库地址
 // 持续完善。。。
 
 ```
