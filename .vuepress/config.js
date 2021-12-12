@@ -20,8 +20,7 @@ module.exports = {
             title: 'JS',
             collapsable: false,
             children: [
-                '/home/JavaScript/debounce',
-                '/home/JavaScript/throttle',
+                '/home/JavaScript/knowledge',
                 '/home/JavaScript/TS'
             ]
         },
