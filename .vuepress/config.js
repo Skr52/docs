@@ -1,4 +1,5 @@
 module.exports = {
+    lang: 'zh-CN',
     title: 'S.kr',
     description: '不求每日阅读，但求一日阅读',
     head: [
@@ -8,7 +9,7 @@ module.exports = {
         }]
     ],
     port: 8917,
-    base: '/doc/',
+    base: '/',
     dest: '.vuepress/doc',
     themeConfig: {
         sidebar: [{
@@ -60,8 +61,7 @@ module.exports = {
                     '/home/methods/formatDate',
                     '/home/methods/hidePhone',
                     '/home/methods/unique',
-                    '/home/methods/strNull',
-                    '/home/methods/lineFeed'
+                    '/home/methods/strNull'
                 ]
             },
         ],

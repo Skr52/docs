@@ -1,7 +1,7 @@
 # 网站
 
 | 标题名称   | 描述内容 | 链接地址 | 
-| :---: | :---: | :---: | 
+| :---: | :---: | :---: |
 | 思否      | 前端学习资讯网站  | <a href="https://segmentfault.com/" target="_block">链接</a> |
 | 博客园   | 新闻前端和后端学习网站，偏向于后端  | <a href="https://www.cnblogs.com/" target="_block">链接</a> |
 | echarts   | pc端图表网站  | <a href="https://echarts.apache.org/zh/index.html" target="_block">链接</a> |
