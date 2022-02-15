@@ -47,11 +47,11 @@ module.exports = {
                 title: '面试题',
                 collapsable: false,
                 children: [
+                    '/ms/desc',
                     '/ms/ms-html/html',
                     '/ms/ms-css/css',
                     '/ms/ms-js/js',
                     '/ms/ms-vue/vue',
-                    '/ms/desc'
                 ]
             },
             {
