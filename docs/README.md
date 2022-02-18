@@ -10,5 +10,5 @@ features:
   details: 文档样式
 - title: JS
   details: 文档交互
-footer: MIT Licensed | Copyright © 2021-WPR
+footer: MIT Licensed | Copyright © 2022-WPR
 ---
