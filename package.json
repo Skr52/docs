@@ -1,11 +1,11 @@
 {
 	"name": "docs",
 	"version": "1.0.0",
-	"description": "docs",
+	"description": "日志",
 	"main": "index.js",
 	"scripts": {
-		"dev": "vuepress dev .",
-		"build": "vuepress build ."
+		"dev": "vuepress dev docs",
+		"build": "vuepress build docs"
 	},
 	"author": "S.kr",
 	"license": "ISC",
