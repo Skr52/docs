@@ -16,7 +16,10 @@ module.exports = {
                 collapsable: false,
                 children: [
                     '/JavaScript/knowledge',
-                    '/JavaScript/TS'
+                    {
+                        title: 'TypeScript',
+                        path: 'https://www.dengwb.com/typescript/'
+                    }
                 ]
             },
             {

@@ -121,3 +121,191 @@ function throttle(func, wait) {
 content.onmousemove = throttle(count,1000);
 
 ```
+
+## 强缓存与协商缓存
+强缓存
+
+1. 在设置的时间内，不会发起请求，直接取的是本地的资源。
+2. 主要由两个字段其中一个字段决定，`expires` 和 `cache-control(优先级更高)`, 前者配置的是秒数，后者配置的是毫秒。
+
+`expires`
+
+我们只需设置响应头里 expires 的时间为 当前时间 + 30s 就行了
+```js
+app.use(async (ctx) => {
+  const url = ctx.request.url
+  if (url === '/') {
+    // 访问根路径返回index.html
+    ctx.set('Content-Type', 'text/html')
+    ctx.body = await parseStatic('./index.html')
+  } else {
+    const filePath = path.resolve(__dirname, `.${url}`)
+    // 设置类型
+    ctx.set('Content-Type', parseMime(url))
+    // 设置 Expires 响应头
+    const time = new Date(Date.now() + 30000).toUTCString()
+    ctx.set('Expires', time)
+    // 设置传输
+    ctx.body = await parseStatic(filePath)
+  }
+})
+
+```
+请求的资源响应头多了一个 `expires` 字段
+
+![expires](https://segmentfault.com/img/remote/1460000041424555)
+
+并且，在30s内，我们刷新之后，看到请求都是走 memory ，这意味着，通过 expires 设置强缓存的时效是30s，这30s之内，资源都会走本地缓存，而不会重新请求
+
+![expires](https://segmentfault.com/img/remote/1460000041424556)
+
+`cache-control`
+
+其实 `cache-control` 跟 `expires` 效果差不多，只不过这两个字段设置的值不一样而已，前者设置的是 秒数 ，后者设置的是 毫秒数
+
+``` js
+app.use(async (ctx) => {
+  const url = ctx.request.url
+  if (url === '/') {
+    // 访问根路径返回index.html
+    ctx.set('Content-Type', 'text/html')
+    ctx.body = await parseStatic('./index.html')
+  } else {
+    const filePath = path.resolve(__dirname, `.${url}`)
+    // 设置类型
+    ctx.set('Content-Type', parseMime(url))
+    // 设置 Cache-Control 响应头
+    ctx.set('Cache-Control', 'max-age=30')
+    // 设置传输
+    ctx.body = await parseStatic(filePath)
+  }
+})
+
+```
+
+前端页面响应头多了 cache-control 这个字段，且30s内都走本地缓存，不会去请求服务端
+
+![cache-control](https://segmentfault.com/img/remote/1460000041424558)
+
+协商缓存
+
+与 强缓存 不同的是， 强缓存 是在时效时间内，不走服务端，只走本地缓存；而 协商缓存 是要走服务端的，如果请求某个资源，去请求服务端时，发现 命中缓存 则返回 304 ，否则则返回所请求的资源。
+
+`Last-Modified` 和 `If-Modified-Since`
+
+* 第一次请求资源时，服务端会把所请求的资源的 最后一次修改时间 当成响应头中 Last-Modified 的值发到浏览器并在浏览器存起来
+* 第二次请求资源时，浏览器会把刚刚存储的时间当成请求头中 If-Modified-Since 的值，传到服务端，服务端拿到这个时间跟所请求的资源的最后修改时间进行比对
+* 比对结果如果两个时间相同，则说明此资源没修改过，那就是 命中缓存 ，那就返回 304 ，如果不相同，则说明此资源修改过了，则 没命中缓存 ，则返回修改过后的新资源
+
+``` js
+// 获取文件信息
+const getFileStat = (path) => {
+  return new Promise((resolve) => {
+    fs.stat(path, (_, stat) => {
+      resolve(stat)
+    })
+  })
+}
+
+app.use(async (ctx) => {
+  const url = ctx.request.url
+  if (url === '/') {
+    // 访问根路径返回index.html
+    ctx.set('Content-Type', 'text/html')
+    ctx.body = await parseStatic('./index.html')
+  } else {
+    const filePath = path.resolve(__dirname, `.${url}`)
+    const ifModifiedSince = ctx.request.header['if-modified-since']
+    const fileStat = await getFileStat(filePath)
+    console.log(new Date(fileStat.mtime).getTime())
+    ctx.set('Cache-Control', 'no-cache')
+    ctx.set('Content-Type', parseMime(url))
+    // 比对时间，mtime为文件最后修改时间
+    if (ifModifiedSince === fileStat.mtime.toGMTString()) {
+      ctx.status = 304
+    } else {
+      ctx.set('Last-Modified', fileStat.mtime.toGMTString())
+      ctx.body = await parseStatic(filePath)
+    }
+  }
+})
+
+```
+
+第一次请求时，响应头中：
+
+![cache-control](https://segmentfault.com/img/remote/1460000041424559)
+
+第二次请求时，请求头中：
+
+![cache-control](https://segmentfault.com/img/remote/1460000041424560)
+
+由于资源并没修改，则命中缓存，返回304：
+
+![cache-control](https://segmentfault.com/img/remote/1460000041424561)
+
+此时修改一下 index.css
+
+``` js
+
+.box {
+  width: 500px;
+  height: 300px;
+  background-image: url('../image/guang.jpg');
+  background-size: 100% 100%;
+  /* 修改这里 */
+  color: #333;
+}
+
+```
+
+然后我们刷新一下页面， index.css 变了，所以会 没命中缓存 ，返回200和新资源，而 guang.jpg 并没有修改，则 命中缓存 返回304：
+
+![cache-control](https://segmentfault.com/img/remote/1460000041424562)
+
+`Etag` 和 `If-None-Match`
+
+其实 Etag，If-None-Match 跟 Last-Modified，If-Modified-Since 大体一样，区别在于：
+
+* 后者是对比资源最后一次修改时间，来确定资源是否修改了
+* 前者是对比资源内容，来确定资源是否修改
+
+通过读取资源内容，转成hash值来对比资源内容
+
+```js
+
+const crypto = require('crypto')
+
+app.use(async (ctx) => {
+  const url = ctx.request.url
+  if (url === '/') {
+    // 访问根路径返回index.html
+    ctx.set('Content-Type', 'text/html')
+    ctx.body = await parseStatic('./index.html')
+  } else {
+    const filePath = path.resolve(__dirname, `.${url}`)
+    const fileBuffer = await parseStatic(filePath)
+    const ifNoneMatch = ctx.request.header['if-none-match']
+    // 生产内容hash值
+    const hash = crypto.createHash('md5')
+    hash.update(fileBuffer)
+    const etag = `"${hash.digest('hex')}"`
+    ctx.set('Cache-Control', 'no-cache')
+    ctx.set('Content-Type', parseMime(url))
+    // 对比hash值
+    if (ifNoneMatch === etag) {
+      ctx.status = 304
+    } else {
+      ctx.set('etag', etag)
+      ctx.body = fileBuffer
+    }
+  }
+})
+
+```
+
+总结：
+
+![cache-control](https://segmentfault.com/img/remote/1460000041424563)
+
+[原文链接](https://segmentfault.com/a/1190000041424550)
