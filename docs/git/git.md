@@ -12,7 +12,7 @@
 9. git reset --hard a7a7323 // 回退版本 --hard 后面指commit id
 10. git push -f origin master // 远程分支回退版本。先本地分支进行回退，在强制推送到远程分支上。 
 11. git remote set-url --add origin 远程仓库地址 // 本地仓库中添加一个新的远程仓库地址
-12. git rm -r --cached . //清除 git 本地缓存，用于新增的忽略文件提交
+12. git rm -r --cached . | 具体文件名称 //清除 git 本地缓存，用于新增的忽略文件提交
 // 持续完善。。。
 
 ```

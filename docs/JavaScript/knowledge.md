@@ -309,3 +309,22 @@ app.use(async (ctx) => {
 ![cache-control](https://segmentfault.com/img/remote/1460000041424563)
 
 [原文链接](https://segmentfault.com/a/1190000041424550)
+
+
+## `ajax` 和 `axios` 和 `fetch` 三者的区别
+
+### `ajax`
+1. 基于原生请求 api `XMLHttpRequest`，主要由 `jquery` 封装而来
+2. 多个请求之间如果有先后关系的话，就会出现回调地狱
+
+### `axios`
+1. 基于 `Promise` 方式来封装 `XMLHttqRequest` api 请求的库，可以使用 `Promise` api 方式来解决回调地狱问题
+2. 拦截请求和响应、转换请求和响应数据、取消请求、自动转换JSON数据等一些操作，减少操作量
+3. 语法简洁，更加语义化
+
+### `fetch`
+1. 基于 `Promise` 方式来实现的原生请求 api， 脱离了XHR，是ES规范里新的实现方式
+2. `fetch` 只对网络请求报错，对400，500都当做成功的请求，服务器返回 400，500 错误码时并不会 reject，只有网络错误这些导致请求不能完成时，`fetch` 才会被 reject。
+3. `fetch` 默认不会带 cookie，需要添加配置项： fetch(url, {credentials: 'include'})
+4. `fetch` 不支持abort，不支持超时控制，使用setTimeout及Promise.reject的实现的超时控制并不能阻止请求过程继续在后台运行，造成了流量的浪费
+5. `fetch` 没有办法原生监测请求的进度，而XHR可以
