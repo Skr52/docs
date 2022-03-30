@@ -326,4 +326,10 @@ app.use(async (ctx) => {
 4. `fetch` 不支持abort，不支持超时控制，使用setTimeout及Promise.reject的实现的超时控制并不能阻止请求过程继续在后台运行，造成了流量的浪费
 5. `fetch` 没有办法原生监测请求的进度，而XHR可以
 
-## JS 的箭头函数与普通的函数区别
+## ES6 的箭头函数与普通的函数区别
+1. 语法上箭头函数书写更加简洁如： `() => {}` 。 普通函数需要写 `function () {} `
+2. `this` 指向问题：箭头函数的 `this` 取的是父级作用域的 `this`, 并且 `bind`, `call`, `apply` 方法不能改变箭头函数的 `this`。普通函数的 `this` 指向调用者，`bind`, `call`, `apply` 可以改变 `this` 指向。
+3. 箭头函数没有 `arguments` 对象，可以用 `...res` 剩余参数代替。普通函数有
+4. 箭头函数不能作为构造函数使用，并且箭头函数没有原型对象。普通函数有
+5. 箭头函数不能在对象里面的方法如 `const obj = { a: 2, getName: () => { return this.a }} this 指向 window`
+6. 箭头函数在动态获取 `this` 函数中也不能使用如：`const b = 2;  btn.addEventLister('click', () => { return this.b }) this 指向 window` 
