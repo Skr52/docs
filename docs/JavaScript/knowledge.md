@@ -328,3 +328,5 @@ app.use(async (ctx) => {
 3. `fetch` 默认不会带 cookie，需要添加配置项： fetch(url, {credentials: 'include'})
 4. `fetch` 不支持abort，不支持超时控制，使用setTimeout及Promise.reject的实现的超时控制并不能阻止请求过程继续在后台运行，造成了流量的浪费
 5. `fetch` 没有办法原生监测请求的进度，而XHR可以
+
+## JS 的箭头函数与普通的函数区别

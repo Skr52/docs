@@ -28,3 +28,7 @@ CODING密码：www000ww
 
 宝塔面板服务器登录账号：user
 宝塔面板服务器登录密码：w123456789
+
+gitee私人令牌：834e5f21649400012e006896037bb964
+github私人Token: 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
+gitee解压密码：www000ww
