@@ -71,11 +71,12 @@
 ## 防抖函数
 
 指触发事件后在 n 秒内函数只能执行一次，如果在 n 秒内又触发了事件，则会重新计算函数执行时间
+主要应用场景：输入框进行搜索
 
 ``` js
-// func是用户传入需要防抖的函数
-// wait是等待时间
-function debounce(fn, wait) {
+// fn 传入的函数
+// delay 触发时间
+function debounce(fn, delay) {
   // 缓存一个定时器id
   let timer = 0
   // 这里返回的函数是每次用户实际调用的防抖函数
@@ -85,7 +86,7 @@ function debounce(fn, wait) {
     if (timer) clearTimeout(timer)
     timer = setTimeout(() => {
       fn.apply(this, args)
-    }, wait)
+    }, delay)
   }
 }
 
@@ -101,20 +102,16 @@ window.onscroll = debounce(fn, 2000) // 返回一个函数
 ```
 
 ## 节流函数
-指连续触发事件但是在 n 秒中只执行一次函数。即 2n 秒内执行 2 次... 。节流如字面意思，会稀释函数的执行频率。
-始终会在一段时间内执行函数，防抖并不会执行函数
+指连续触发事件但是在 n 秒中只执行一次函数。即 2n 秒内执行 2 次... 。节流如字面意思，会稀释函数的执行频率。始终会在一段时间内执行函数，防抖并不会执行函数
 
 ``` js
-function throttle(func, wait) {
-    let previous = 0;
-    return function() {
-      let now = Date.now();
-      let context = this;
-      let args = arguments;
-      if (now - previous > wait) {
-        func.apply(context, args);
-        previous = now;
-      }
+function throttle(fn, delay) {
+    let timer = 0
+    return function (...args) {
+      if (timer) return
+      timer = setTimeout(() => {
+        fn.apply(this, args)
+      }, delay)
     }
 }
 
