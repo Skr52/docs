@@ -86,6 +86,7 @@ function debounce(fn, delay) {
     if (timer) clearTimeout(timer)
     timer = setTimeout(() => {
       fn.apply(this, args)
+      timer = 0
     }, delay)
   }
 }
@@ -111,6 +112,7 @@ function throttle(fn, delay) {
       if (timer) return
       timer = setTimeout(() => {
         fn.apply(this, args)
+        timer = 0
       }, delay)
     }
 }
