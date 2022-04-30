@@ -18,4 +18,5 @@
 | remove.bg   | 消除图片背景  | <a href="https://www.remove.bg/zh" target="_block">链接</a> |
 | snippet-generator   | 根据代码生成代码片段  | <a href="https://snippet-generator.app/" target="_block">链接</a> |
 | snipaste   | 截屏软件  | <a href="https://zh.snipaste.com/" target="_block">链接</a> |
+| picdiet | 极速压缩80%的图片大小，而不损害其图片质量 | <a href="https://picdiet.eula.club/" target="_block">链接</a>
 | 待更新 
