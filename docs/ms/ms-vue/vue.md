@@ -1,37 +1,60 @@
 # Vue
 
-## Vue 中 router 和 route 区别是什么
-`router` 代表全局的路由实例，在这其中可以进行路由跳转操作。
+## Computed 和 Watch 的区别
+`computed` 通过多个数据计算出一个新的数据。并且会缓存数据
 
-`route` 代表当前路由信息对象，在这其中包含了当前URL 解析到的信息，匹配到的 route records 路由记录
+```Vue
+<template>
+    <div>{{ getMsg }}</div>
+</template>
 
-## Vue 中路由传参数有几种方式
-
-1. params 形式 `this.$router.push({ name: 'home', params: { age: 10 } })`
-
-> 在路由配置中，路径参数以冒号：表示。
-
-> const router = [ <br>
-   // 动态段以冒号开始
-    <br>
-    {
-        name: 'home',
-        path: '/home/:age'
+<script>
+    export default {
+        data () {
+            return {
+                msg: '33',
+                text: '333'
+            }
+        },
+        computed: {
+            // 只有 msg 和 text 变化的时候，才会重新触发函数
+            getMsg() {
+                return this.msg + this.text
+            }
+        }
     }
-    <br>
-] 
+</script>
+```
 
-注意：如果提供了 path， params 会被忽略。
+`watch` 监听某个数据，并且当数据变化的时候，回触发回调函数
 
-> // `params` 不能与 `path` 一起使用 <br> router.push({ path: '/details', params: { id: '001' } }) // -> /details
+```Vue
+<template>
+    <div>{{ text }}</div>
+</template>
 
-获取方式：`this.$route.params` 方式
+<script>
+    export default {
+        data () {
+            return {
+                msg: '33',
+                text: '333'
+            }
+        },
+        watch: {
+           text(nevVal) {
+               console.log(newVal, '新的数据')
+           } 
+        }
+    }
+</script>
+```
 
-2. query 形式 `this.$router.push({ name: 'home', query: { age: 10 } })`, 
-这个不用在路由配置中加冒号，他是直接拼接到 url 地址上面，`home?age=10`。
+## 组件通讯方式有哪些，尽量全面
 
-获取方式：`this.$route.query` 方式
-
-3. hash 形式 `this.$router.push({ name: 'home', hash: '#cad' })`
-
-获取方式：`this.$route.hash.slice(1)` 方式
+1. props 和 emit
+2. 自定义事件 例如：eventBus
+3. $attrs 和 $listeners
+4. $parent 和 $refs
+5. provide 和 inject
+6. vuex 

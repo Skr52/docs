@@ -66,7 +66,8 @@ module.exports = {
                     '/methods/hidePhone',
                     '/methods/unique',
                     '/methods/strNull',
-                    '/methods/keys'
+                    '/methods/keys',
+                    '/methods/group'
                 ]
             },
         ],
