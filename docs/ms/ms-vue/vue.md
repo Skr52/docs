@@ -26,7 +26,7 @@
 </script>
 ```
 
-`watch` 监听某个数据，并且当数据变化的时候，回触发回调函数
+`watch` 监听某个数据，并且当数据变化的时候，会触发回调函数
 
 ```Vue
 <template>
@@ -53,7 +53,7 @@
 ## 组件通讯方式有哪些，尽量全面
 
 1. props 和 emit
-2. 自定义事件 例如：eventBus
+2. 自定义事件 eventBus
 3. $attrs 和 $listeners
 4. $parent 和 $refs
 5. provide 和 inject

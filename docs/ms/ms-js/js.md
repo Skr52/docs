@@ -5,8 +5,10 @@
 
 引用类型有 1 种：`Object`。
 
-## JS 中有哪些内置函数（数据封装类对象）
-分别有：`Object`、`Array`、`Boolean`、`String`、`Number`、`Date`、`Function`、`RegExp`、`Error`
+## JS 中严格模式的特点
+1. 全局变量必须声明 例如：n = 20 
+2. this 指向 undefined
+3. 函数参数不能重复命名 例如 function fn(x, x, y) {}
 
 ## JS 中 new 操作符进行了什么操作
 1. 创建一个空对象；
