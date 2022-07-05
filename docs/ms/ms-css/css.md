@@ -1,14 +1,19 @@
 # CSS
 
 ## BFC特性
-`BFC` 就是一个隔离独立的容器，里面的子元素不会影响外面的元素。
+`BFC` 简称块级格式化上下文。它是页面中一个独立的元素，容器中的元素不会影响到外面的元素。
 
 `BFC` 是怎么产生的 ?
 
 --------------------------------------------------------------------
-1. 设置元素：display: block, list-item, table, flex, inline-block;
+1. display的值为：inline-block、inltable-cell、table-caption、table、inline-table、flex、
+inline-flex、grid、inline-grid
 
-2. 设置元素属性：float值不为none, position值为absolute, fixed, overflow值不为visible;
+2. float的值为：left、right
+
+3. overflow的值为：auto、scroll、hidden
+
+4. position的值为：fixed、absolute
 
 `BFC` 解决了什么问题 ?
 
