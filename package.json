@@ -1,15 +1,15 @@
 {
-	"name": "docs",
-	"version": "1.0.0",
-	"description": "日志",
-	"main": "index.js",
-	"scripts": {
-		"dev": "vuepress dev docs",
-		"build": "vuepress build docs"
-	},
-	"author": "S.kr",
-	"license": "ISC",
-	"devDependencies": {
-		"vuepress": "^1.9.7"
-	}
+  "name": "docs",
+  "version": "1.5.0",
+  "author": "S.kr",
+  "license": "ISC",
+  "description": "文档",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^1.9.7"
+  }
 }

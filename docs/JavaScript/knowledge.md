@@ -1,72 +1,13 @@
 # 知识点
 
 ## 作用域
-指的是变量的查找范围，分为 全局作用域 和 函数作用域
 
-+ 全局作用域预编译
- - 创建 GO 对象
- - 找变量声明 将变量名作为 GO对象的属性名，值为 undefined
- - 找函数声明 值赋予函数体
-
-例子：
-
-```js
-
-  function get() {
-
-  }
-
-  var a = 123
-
-
-  // GO 对象
-  // const GO = {
-  //   a: undefined,
-  //   get: function () {}
-  // }
-  
-```
-
-+ 函数作用域预编译
- - 创建 AO 对象
- - 找形参和变量声明，将变量和形参作为AO对象的属性名，值为 undefined
- - 实参和形参统一
- - 找函数声明，如果函数声明跟变量声明一致，会覆盖变量的声明
-
-例子：
-```js
-
-  function fn (a, c) {
-    console.log(a) // function a () {}
-    var a = 123
-    console.log(a) // 123
-    console.log(c) // function c () {}
-    function a () {}
-    if (false) {
-      var d = 1
-    }
-    console.log(d) // undefined
-    console.log(b) // undefined
-    var b = function () {}
-    console.log(b) // function () {}
-    function c () {}
-    console.log(c) // function c () {}
-  }
-
-  fn(1, 2)
-
-  // AO对象
-  // const AO = {
-  //    a: undefined, 1 function a () {}
-  //    c: undefined, 1 function c () {}
-  //    d: undefined,
-  //    b: undefined
-  // }
-
-```
+指的是变量与函数可访问的范围
 
 ## 作用域链
-在 js引擎中有个隐式属性 [[scope]], 里面存储着在 全局作用域 和 函数作用域 预编译生成的 GO 对象和 AO对象。如果在自身 GO 对象或 AO 对象找到变量，就使用变量，没有就继续像上查找，直到 GO 对象中。在 GO 对象中没有找到就返回 undefined。 类似于原型链查找过程。
+
+一般取变量的值，会从当前作用域中取值。如果当前作用域取不到值，会从外层作用域中取值，直到查到全局作用域中。
+这么一个查找过程形成的链条就叫做作用域链
 
 ## 防抖函数
 

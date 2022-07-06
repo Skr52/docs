@@ -11,7 +11,8 @@ module.exports = {
     port: 8917,
     base: '/',
     themeConfig: {
-        sidebar: [{
+        sidebar: [
+            {
                 title: 'JS',
                 collapsable: false,
                 children: [
@@ -61,13 +62,12 @@ module.exports = {
                 title: '常用方法',
                 collapsable: false,
                 children: [
-                    '/methods/currentDate',
                     '/methods/formatDate',
                     '/methods/hidePhone',
                     '/methods/unique',
-                    '/methods/strNull',
                     '/methods/keys',
-                    '/methods/group'
+                    '/methods/group',
+                    '/methods/file-download',
                 ]
             },
         ],
