@@ -68,6 +68,7 @@ module.exports = {
                     '/methods/keys',
                     '/methods/group',
                     '/methods/file-download',
+                    '/methods/validator'
                 ]
             },
         ],
