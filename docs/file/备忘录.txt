@@ -33,6 +33,11 @@ CODING密码：www000ww
 蓝奏云账号：18872181822
 蓝奏云密码：www000ww
 
+腾讯云 cos SecretId: AKIDhJBq7EC0Zv797ziEXt58zyox3wc3HLDy
+腾讯云 cos SecretKey: czCBvV0Mi3QddPzLWWJxc6y78yfGguxp
+
 gitee私人令牌：834e5f21649400012e006896037bb964
 github私人Token: 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
 gitee解压密码：www000ww
+
+又拍云服务密码：2EkCkppvqy6AIXCHknf5WONo6IiDBr5s
