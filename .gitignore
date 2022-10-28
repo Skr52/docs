@@ -2,3 +2,4 @@ node_modules
 /docs/.vuepress/dist
 package-lock.json
 pnpm-lock.yaml
+/docs/file/备忘录.txt
