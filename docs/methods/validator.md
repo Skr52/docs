@@ -19,7 +19,7 @@ function btKeyUp2(e) {
 
 // 限制整数和小数
 function btKeyUp3(e) {
-  e.target.value = e.target.value.match(/^\d\*(\.?\d{0,2})/g)[0] || null
+  e.target.value = e.target.value.match(/^\d*(\.?\d{0,2})/g)[0] || null;
 }
 
 ```
