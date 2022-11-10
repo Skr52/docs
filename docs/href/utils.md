@@ -1030,4 +1030,4 @@ Node.js 桌面自动化，控制鼠标、键盘和阅读屏幕等
 构建高效且可扩展的服务器端应用程序的渐进式Node.js框架
 <https://nestjs.com/>
 
-*# 2022年技术胖私藏工具分享*
+*# [原文链接](https://www.bilibili.com/video/BV1ke4y1v7Xd/?spm_id_from=333.999.0.0&vd_source=ec506cb092ee84f5496680e0b8730251) 2022年技术胖私藏工具分享*
