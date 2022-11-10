@@ -11,6 +11,7 @@ function keywordscolorful(str, key) {
 const keysStr = keywordscolorful("123456", "2");
 
 console.log(keysStr)
+
 // "1<font style='background:#ff0;'>2</font>3456"
 
 ```
