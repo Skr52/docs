@@ -4,6 +4,7 @@ export default hope.config({
   title: "S.kr",
   description: "不求每日阅读，但求一日阅读",
   dest: "./dist",
+  port: 8099,
   themeConfig: {
     logo: "/img/logo.png",
     hostname: "https://vuepress-theme-hope-demo.mrhope.site",
@@ -55,7 +56,7 @@ export default hope.config({
         collapsable: false,
         children: [
           "/methods/formatDate",
-          "/methods/hidePhone",
+          "/methods/hideString",
           "/methods/unique",
           "/methods/keys",
           "/methods/group",
